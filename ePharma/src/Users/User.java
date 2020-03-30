@@ -1,10 +1,6 @@
 package Users;
 import Pharmacy.Pharmacy;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.UnknownServiceException;
+import java.io.*;
 import java.util.Scanner;
 
 public class User {
@@ -13,17 +9,23 @@ public class User {
     private boolean loginStatus;
 
 
-    public User (String name, String password) throws FileNotFoundException, UnsupportedEncodingException {
+    public User (String name, String password) {
         this.username = name;
         this.password = password;
         this.loginStatus = false;
 
-//        writer.append(this.username + "\n");
-//        writer.append(this.password + "\n");
-//        writer.close();
+        try(FileWriter fw = new FileWriter("src/Users/users.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            out.print(name + ",");
+            out.print(password + "\n");
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
     }
 
-    public static void login (String username, String password) {
+    public static boolean login (String username, String password) {
         boolean found = false;
         String tempName = "";
         String tempPass = "";
@@ -37,17 +39,16 @@ public class User {
                 tempPass = scan.next();
 
                 if(tempName.equals(username) && tempPass.equals(password)) {
-                    Pharmacy.findUser(username).setLoginStatus(true);
                     found = true;
                 }
             }
-
             scan.close();
-            System.out.println(found);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        return found;
     }
 
     public boolean isLoginStatus() {

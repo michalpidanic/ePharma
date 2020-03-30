@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class Pharmacy {
-    public static ArrayList<User> users = new ArrayList<User>();
+
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 
@@ -16,12 +16,19 @@ public class Pharmacy {
         users.add(new User("admin4", "admin4"));
         users.add(new User("admin5", "admin5"));
 
-        User.login("admin1", "admin1");
-        System.out.println(findUser("admin1").isLoginStatus());
 
-        User.login("admin2", "admin3");
-        System.out.println(findUser("admin2").isLoginStatus());
+        findUser("admin1").setLoginStatus(User.login("admin1", "admin1"));
+
+        if(findUser("admin1").isLoginStatus()) {
+            System.out.println("Login succesful!");
+        } else {
+            System.out.println("Login not succesful!");
+        }
+
+
     }
+
+    public static ArrayList<User> users = new ArrayList<>();
 
     public static User findUser(String name) {
         int i = 0;
@@ -31,8 +38,5 @@ public class Pharmacy {
             }
             i++;
         }
-    }
-    public static void setUsers(ArrayList<User> users) {
-        Pharmacy.users = users;
     }
 }
