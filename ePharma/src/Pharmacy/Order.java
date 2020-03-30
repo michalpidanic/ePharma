@@ -5,9 +5,9 @@ public class Order {
     protected int itemsAdded;
     protected double totalPrice;
 
-    public Order () {
-        this.orderId = ;
-        this.itemsAdded = ;
-        this.totalPrice = ;
-    }
+//    public Order () {
+//        this.orderId = ;
+//        this.itemsAdded = ;
+//        this.totalPrice = ;
+//    }
 }
