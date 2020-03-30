@@ -13,7 +13,7 @@ public class Pharmacy {
         users.add(new User("admin5", "admin5", ++id));
 
         findUser("admin1").setLoginStatus(User.login("admin1", "admin1"));
-
+        
         if(findUser("admin1").isLoginStatus()) {
             System.out.println("Login successful!");
         } else {

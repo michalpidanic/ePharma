@@ -18,18 +18,18 @@ public class Order {
         this.prescriptionNeeded = false;
     }
 
-    public void addToOrder(String item, double price, int pieces, boolean prescription) {
-        this.totalPrice += price * pieces;
+    public void addToOrder(Medicine item, int pieces) {
+        this.totalPrice += item.getPrice() * pieces;
 
-        if(this.items.contains(item)) {
-            this.quantity.set(this.items.indexOf(item), this.quantity.get(this.items.indexOf(item)) + pieces);
+        if(this.items.contains(item.getName())) {
+            this.quantity.set(this.items.indexOf(item.getName()), this.quantity.get(this.items.indexOf(item.getName())) + pieces);
         } else {
-            this.items.add(item);
-            this.prices.add(price);
+            this.items.add(item.getName());
+            this.prices.add(item.getPrice());
             this.quantity.add(pieces);
         }
 
-        if(prescription) {
+        if(item.isPrescription()) {
             this.prescriptionNeeded = true;
         }
     }
