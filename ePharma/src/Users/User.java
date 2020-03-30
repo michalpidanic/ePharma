@@ -1,15 +1,17 @@
 package Users;
-import Pharmacy.Pharmacy;
 import java.io.*;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class User {
+    private int userId;
     private String username;
     private String password;
     private boolean loginStatus;
 
 
-    public User (String name, String password) {
+    public User (String name, String password, int id) {
+        this.userId = id;
         this.username = name;
         this.password = password;
         this.loginStatus = false;
@@ -21,7 +23,7 @@ public class User {
             out.print(name + ",");
             out.print(password + "\n");
         } catch (IOException e) {
-            //exception handling left as an exercise for the reader
+            e.printStackTrace();
         }
     }
 
@@ -75,10 +77,25 @@ public class User {
         this.username = username;
     }
 
-//    public void autoLogout () {
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+//    public static void autoLogout (User user) {
+//        try {
+//            TimeUnit.SECONDS.sleep(5);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 //
+//        user.setLoginStatus(false);
+//        System.out.println("You've been automatically logged out.");
 //    }
-//
+
 //    public String search () {
 //
 //    }

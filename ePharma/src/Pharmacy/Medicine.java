@@ -1,8 +1,8 @@
 package Pharmacy;
 
 public class Medicine {
-    protected String name;
-    protected String application;
-    public double price;
-    protected boolean prescription;
+    private String name;
+    private String application;
+    private double price;
+    private boolean prescription;
 }

@@ -9,8 +9,8 @@ public class Customer extends User {
     protected double budget;
     protected boolean hasPrescription;
 
-    public Customer(String name, String password, String address, String insurance, double budget, boolean prescription) throws FileNotFoundException, UnsupportedEncodingException {
-        super(name, password);
+    public Customer(String name, String password, int id, String address, String insurance, double budget, boolean prescription) throws FileNotFoundException, UnsupportedEncodingException {
+        super(name, password, id);
         this.address = address;
         this.insuranceNumber = insurance;
         this.budget = budget;
