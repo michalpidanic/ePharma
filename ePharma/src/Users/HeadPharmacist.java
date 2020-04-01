@@ -5,6 +5,10 @@ public class HeadPharmacist extends Pharmacist {
         super(name, password, id);
     }
 
+//    public static void registerUser() {
+//        new Pharmacist();
+//    }
+
     public void addToStorage () {
 
     }

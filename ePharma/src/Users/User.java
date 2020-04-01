@@ -5,12 +5,10 @@ import java.util.concurrent.TimeUnit;
 
 public class User {
     private int userId;
-    private String username;
-    private String password;
     private boolean loginStatus;
 
 
-    public User (String name, String password, int id) {
+    public User (int id) {
         this.userId = id;
         this.username = name;
         this.password = password;

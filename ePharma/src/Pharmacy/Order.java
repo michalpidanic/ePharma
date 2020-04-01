@@ -2,14 +2,14 @@ package Pharmacy;
 import java.util.ArrayList;
 
 public class Order {
-    private int orderId;
+    private String orderId;
     private ArrayList<String> items;
     private ArrayList<Double> prices;
     private ArrayList<Integer> quantity;
     private double totalPrice;
     private boolean prescriptionNeeded;
 
-    public Order(int userId) {
+    public Order(String userId) {
         this.orderId = userId;
         this.items = new ArrayList<>();
         this.prices = new ArrayList<>();
