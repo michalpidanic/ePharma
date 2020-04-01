@@ -19,6 +19,22 @@ public class Storage {
         }
     }
 
+    //TODO else conditions
+    private void takeFromStorage(Medicine item, int pieces) {
+        if(this.items.contains(item)) {
+            if(this.quantity.get(this.items.indexOf(item)) - pieces > 0) {
+                this.quantity.set(this.items.indexOf(item), this.quantity.get(this.items.indexOf(item)) - pieces);
+            } else if(this.quantity.get(this.items.indexOf(item)) - pieces == 0) {
+                this.quantity.remove(this.items.indexOf(item));
+                this.items.remove(item);
+            } else {
+                //number of pieces not available
+            }
+        } else {
+            //product not available
+        }
+    }
+
     public ArrayList<Medicine> getItems() {
         return items;
     }
