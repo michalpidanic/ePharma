@@ -12,7 +12,13 @@ public class Pharmacist extends User {
         this.password = password;
     }
 
-    //TODO opytat sa na static
+//    @Override
+//    public boolean verifyLogin(String id) {
+//        return false;
+//    }
+
+    //TODO make it as login service
+    //@Override
     public static boolean verifyLogin(String username, String password, HashMap<String, String> employees) {
         if(employees.containsKey(username)) {
             return employees.get(username).equals(password);

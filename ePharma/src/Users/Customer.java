@@ -1,11 +1,10 @@
 package Users;
 
+import Pharmacy.Order;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
-//TODO opytat sa preco to picuje ked dam implements
 public class Customer extends User {
     private boolean hasPrescription;
 
@@ -14,12 +13,12 @@ public class Customer extends User {
         this.hasPrescription = false;
     }
 
-    //TODO opytat sa na static
+    //TODO make it as login service
     //@Override
-    public static boolean verifyLogin(String id) {
+    public boolean verifyLogin(String id) {
         boolean found = false;
         String tempId = "";
-        String temp= "";
+        String prescription= "";
 
         try {
             Scanner scan = new Scanner(new File("src/Users/patients.txt"));
@@ -27,7 +26,7 @@ public class Customer extends User {
 
             while(scan.hasNext() && !found) {
                 tempId = scan.next();
-                temp = scan.next();
+                prescription = scan.next();
 
                 if(tempId.equals(id)) {
                     found = true;
@@ -40,6 +39,23 @@ public class Customer extends User {
         }
 
         return found;
+    }
+
+    @Override
+    public void payOrder(Order order) {
+        if(order.getTotalPrice() > 0) {
+            if (order.isPrescriptionNeeded()) {
+                if (this.isHasPrescription()) {
+                    System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
+                    order.cancelOrder();
+                } else {
+                    System.out.println("Objednávka vyžaduje lekársky predpis!");
+                }
+            } else {
+                System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
+                order.cancelOrder();
+            }
+        }
     }
 
     public boolean isHasPrescription() {

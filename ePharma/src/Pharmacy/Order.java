@@ -56,6 +56,13 @@ public class Order {
         storage.addToStorage(item, 1);
     }
 
+    public void cancelOrder() {
+        this.items.clear();
+        this.quantity.clear();
+        this.totalPrice = 0;
+        this.prescriptionNeeded = false;
+    }
+
     public void cancelOrder(Storage storage) {
         for(Medicine i : this.items) {
             storage.addToStorage(i, this.quantity.get(this.items.indexOf(i)));

@@ -18,13 +18,13 @@ public class Pharmacy {
     }
 
     //TODO UserNotFoundException
-    public Pharmacist findUser(String name, ArrayList<Pharmacist> users) {
+    public Pharmacist findUser(String name, ArrayList<Pharmacist> users) throws UserNotFoundException {
         for (Pharmacist user : users) {
             if (user.getUsername().equals(name)) {
                 return user;
             }
         }
 
-        return null;
+        throw new UserNotFoundException("User not found: " + name);
     }
 }

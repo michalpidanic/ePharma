@@ -4,7 +4,7 @@ import Users.HeadPharmacist;
 import Users.Pharmacist;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UserNotFoundException {
         int id = 0;
         String username = "admin2";
         String password = "admin1";
@@ -56,8 +56,7 @@ public class Main {
         System.out.println("pocet paralenov v sklade " + pharmacy.storage.getQuantity().get(pharmacy.storage.getItems().indexOf(paralen)));
 
 
-
-//        //System.out.println(pharmacy.findUser(username, pharmacy.users).verifyLogin(username, password, pharmacy.employees));
+        System.out.println(Pharmacist.verifyLogin(username, password, pharmacy.employeesLogin));
 //
 //        System.out.println(Pharmacist.verifyLogin(username, password, pharmacy.employeesLogin));
 //        System.out.println(pharmacy.employees);
