@@ -1,40 +1,39 @@
 package Users;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
+import java.util.HashMap;
 
 public class Pharmacist extends User {
     private String username;
     private String password;
 
-    public Pharmacist(String name, String password, int id) {
-        super(name, password, id);
+    public Pharmacist(String name, String password, String id) {
+        super(id);
+        this.username = name;
+        this.password = password;
     }
 
-    public static boolean verifyLogin (String username, String password) {
-        boolean found = false;
-        String tempName = "";
-        String tempPass = "";
-
-        try {
-            Scanner scan = new Scanner(new File("src/Users/users.txt"));
-            scan.useDelimiter("[,\n]");
-
-            while(scan.hasNext() && !found) {
-                tempName = scan.next();
-                tempPass = scan.next();
-
-                if(tempName.equals(username) && tempPass.equals(password)) {
-                    found = true;
-                }
-            }
-            scan.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    //TODO opytat sa na static
+    public static boolean verifyLogin(String username, String password, HashMap<String, String> employees) {
+        if(employees.containsKey(username)) {
+            return employees.get(username).equals(password);
+        } else {
+            return false;
         }
-
-        return found;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
