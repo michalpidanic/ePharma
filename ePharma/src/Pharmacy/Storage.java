@@ -25,8 +25,7 @@ public class Storage {
             if(this.quantity.get(this.items.indexOf(item)) - pieces > 0) {
                 this.quantity.set(this.items.indexOf(item), this.quantity.get(this.items.indexOf(item)) - pieces);
             } else if(this.quantity.get(this.items.indexOf(item)) - pieces == 0) {
-                this.quantity.remove(this.items.indexOf(item));
-                this.items.remove(item);
+                this.quantity.set(this.items.indexOf(item), 0);
             } else {
                 //number of pieces not available
             }
