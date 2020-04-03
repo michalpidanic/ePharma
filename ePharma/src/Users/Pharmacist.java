@@ -1,8 +1,10 @@
 package Users;
 
+import Pharmacy.Order;
+
 import java.util.HashMap;
 
-public class Pharmacist extends User {
+public class Pharmacist extends User implements Payment {
     private String username;
     private String password;
 
@@ -12,10 +14,13 @@ public class Pharmacist extends User {
         this.password = password;
     }
 
-//    @Override
-//    public boolean verifyLogin(String id) {
-//        return false;
-//    }
+    @Override
+    public void payOrder(Order order) {
+        if(order.getTotalPrice() > 0) {
+            System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
+            order.cancelOrder();
+        }
+    }
 
     //TODO make it as login service
     //@Override

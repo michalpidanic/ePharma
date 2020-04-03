@@ -1,11 +1,8 @@
 package Users;
 
 import Pharmacy.Order;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
-public class Customer extends User {
+public class Customer extends User implements Payment{
     private boolean hasPrescription;
 
     public Customer(String insuranceNumber) {
@@ -13,39 +10,11 @@ public class Customer extends User {
         this.hasPrescription = false;
     }
 
-    //TODO make it as login service
-    //@Override
-    public boolean verifyLogin(String id) {
-        boolean found = false;
-        String tempId = "";
-        String prescription= "";
-
-        try {
-            Scanner scan = new Scanner(new File("src/Users/patients.txt"));
-            scan.useDelimiter("[,\n]");
-
-            while(scan.hasNext() && !found) {
-                tempId = scan.next();
-                prescription = scan.next();
-
-                if(tempId.equals(id)) {
-                    found = true;
-                }
-            }
-            scan.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return found;
-    }
-
     @Override
     public void payOrder(Order order) {
         if(order.getTotalPrice() > 0) {
             if (order.isPrescriptionNeeded()) {
-                if (this.isHasPrescription()) {
+                if (this.hasPrescription) {
                     System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
                     order.cancelOrder();
                 } else {
