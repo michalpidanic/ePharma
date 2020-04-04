@@ -10,6 +10,7 @@ public class Customer extends User implements Payment{
         this.hasPrescription = false;
     }
 
+    //TODO alerts instead of println
     @Override
     public void payOrder(Order order) {
         if(order.getTotalPrice() > 0) {

@@ -9,6 +9,7 @@ public class Pharmacy {
     HashMap<String, String> employeesLogin;
     User loggedInUser;
     Storage storage;
+    Order order;
 
     public Pharmacy() {
         this.employees= new ArrayList<>();
@@ -17,14 +18,23 @@ public class Pharmacy {
         this.storage = new Storage();
     }
 
-    //TODO UserNotFoundException
-    public Pharmacist findUser(String name, ArrayList<Pharmacist> users) throws UserNotFoundException {
+    public void login(User user) {
+        this.loggedInUser = user;
+        this.order = new Order(user.getUserId());
+        user.setLoginStatus(true);
+    }
+
+    public void logout(User user) {
+        this.loggedInUser = null;
+        user.setLoginStatus(false);
+    }
+
+    public Pharmacist findUser(String name, ArrayList<Pharmacist> users) {
         for (Pharmacist user : users) {
             if (user.getUsername().equals(name)) {
                 return user;
             }
         }
-
-        throw new UserNotFoundException("User not found: " + name);
+        return null;
     }
 }

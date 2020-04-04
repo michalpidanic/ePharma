@@ -14,21 +14,12 @@ public class Pharmacist extends User implements Payment {
         this.password = password;
     }
 
+    //TODO alerts instead of println
     @Override
     public void payOrder(Order order) {
         if(order.getTotalPrice() > 0) {
             System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
             order.cancelOrder();
-        }
-    }
-
-    //TODO make it as login service
-    //@Override
-    public static boolean verifyLogin(String username, String password, HashMap<String, String> employees) {
-        if(employees.containsKey(username)) {
-            return employees.get(username).equals(password);
-        } else {
-            return false;
         }
     }
 

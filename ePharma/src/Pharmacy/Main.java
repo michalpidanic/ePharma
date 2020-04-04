@@ -55,8 +55,14 @@ public class Main {
         }
         System.out.println("pocet paralenov v sklade " + pharmacy.storage.getQuantity().get(pharmacy.storage.getItems().indexOf(paralen)));
 
+        //login
+        String insuranceNumber = "0000000010";
+        if(Login.verifyLogin(insuranceNumber)) {
+            Customer customer = new Customer(insuranceNumber, );
+            pharmacy.login(customer);
+        }
 
-        System.out.println(Pharmacist.verifyLogin(username, password, pharmacy.employeesLogin));
+
 //
 //        System.out.println(Pharmacist.verifyLogin(username, password, pharmacy.employeesLogin));
 //        System.out.println(pharmacy.employees);
