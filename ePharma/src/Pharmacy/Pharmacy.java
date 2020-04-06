@@ -5,17 +5,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Pharmacy {
+    private static Pharmacy instance;
     ArrayList<Pharmacist> employees;
     HashMap<String, String> employeesLogin;
     User loggedInUser;
     Storage storage;
     Order order;
 
-    public Pharmacy() {
+    private Pharmacy() {
         this.employees= new ArrayList<>();
         this.employeesLogin = new HashMap<>();
         this.loggedInUser = null;
         this.storage = new Storage();
+    }
+
+    public static Pharmacy getInstance() {
+        if(instance == null) {
+            instance = new Pharmacy();
+        }
+        return instance;
     }
 
     public void login(User user) {
