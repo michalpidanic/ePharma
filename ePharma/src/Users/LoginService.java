@@ -15,7 +15,7 @@ public class LoginService {
         String prescription= "";
 
         try {
-            Scanner scan = new Scanner(new File("src/Users/patients.txt"));
+            Scanner scan = new Scanner(new File("resources/patients.txt"));
             scan.useDelimiter("[,\n]");
 
             while(scan.hasNext() && !found) {
