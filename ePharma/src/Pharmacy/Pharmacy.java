@@ -30,11 +30,13 @@ public class Pharmacy {
         this.loggedInUser = user;
         this.order = new Order(user.getUserId());
         user.setLoginStatus(true);
+        System.out.println("Login successful!");
     }
 
     public void logout(User user) {
         this.loggedInUser = null;
         user.setLoginStatus(false);
+        System.out.println("Logout successful!");
     }
 
     public Pharmacist findUser(String name, ArrayList<Pharmacist> users) {

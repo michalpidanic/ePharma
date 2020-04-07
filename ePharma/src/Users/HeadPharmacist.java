@@ -10,10 +10,8 @@ public class HeadPharmacist extends Pharmacist {
         super(name, password, id);
     }
 
-    public Pharmacist registerUser(String name, String password, String id, Pharmacy pharmacy) {
-        Pharmacist pharmacist = new Pharmacist(name, password, id);
+    public void registerUser(String name, String password, String id, Pharmacy pharmacy) { 
         pharmacy.getEmployeesLogin().put(name, password);
-        pharmacy.getEmployees().add(pharmacist);
-        return pharmacist;
+        pharmacy.getEmployees().add(new Pharmacist(name, password, id));
     }
 }

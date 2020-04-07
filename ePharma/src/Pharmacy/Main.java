@@ -17,7 +17,7 @@ public class Main {
         pharmacy.getEmployeesLogin().put(boss.getUsername(), boss.getPassword());
 
         //new employee registration
-        Pharmacist user1 = boss.registerUser("admin1", "admin1", String.valueOf(++id), pharmacy);
+        boss.registerUser("admin1", "admin1", String.valueOf(++id), pharmacy);
 
         //creating medicine objects
         Medicine paralen = new Medicine("Paralen", 1.99, false);
@@ -59,14 +59,10 @@ public class Main {
         //login as Customer
         String insuranceNumber = "0000000010";
         LoginService.verifyLogin(insuranceNumber, pharmacy);
+        pharmacy.logout(pharmacy.getLoggedInUser());
 
         //login as Pharmacist
         LoginService.verifyLogin(username, password, pharmacy);
-
-//
-//        System.out.println(Pharmacist.verifyLogin(username, password, pharmacy.employeesLogin));
-//        System.out.println(pharmacy.employees);
-//        System.out.println(pharmacy.employeesLogin);
-//        System.out.println(Customer.verifyLogin("0000000003"));
+        pharmacy.logout(pharmacy.getLoggedInUser());
     }
 }
