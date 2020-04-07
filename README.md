@@ -20,14 +20,18 @@ Pracovnú verziu programu spustíme v prostredí InteliJ alebo Eclipse, spusten�
 
 Požiadavky na projekt:
 - dedenie:
-	User <- Customer
-	User <- Pharmacist <- Headpharmacist
+	- User <- Customer https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Customer.java#L5
+	- User <- Pharmacist https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Pharmacist.java#L5
+	- Pharmacist <- Headpharmacist https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/HeadPharmacist.java#L5
 
 - polymorfizmus:
-	interface Payment
-	class Pharmacist implements Payment
-	class Customer implements Payment
+	- interface Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Payment.java#L5
+	- class Pharmacist implements Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Pharmacist.java#L5
+	- class Customer implements Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Customer.java#L5
 
 - agregacia:
-	Pharmacy agreguje Order, User, Storage
-
+	- Pharmacy agreguje Order https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Pharmacy/Pharmacy.java#L13
+	- Pharmacy agreguje User https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Pharmacy/Pharmacy.java#L11
+	- Pharmacy agreguje Storage https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Pharmacy/Pharmacy.java#L12
+	
+	
