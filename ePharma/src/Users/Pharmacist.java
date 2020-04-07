@@ -2,8 +2,6 @@ package Users;
 
 import Pharmacy.Order;
 
-import java.util.HashMap;
-
 public class Pharmacist extends User implements Payment {
     private String username;
     private String password;

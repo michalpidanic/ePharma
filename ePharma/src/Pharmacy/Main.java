@@ -1,8 +1,7 @@
 package Pharmacy;
 
+import Services.LoginService;
 import Users.HeadPharmacist;
-import Users.LoginService;
-import Users.Pharmacist;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,26 +42,28 @@ public class Main {
         pharmacy.getStorage().addToStorage(nebilet, 10);
         pharmacy.getStorage().addToStorage(stilnox, 10);
 
-        //adding and removing medicine from order
-        Order order = new Order(String.valueOf(id));
-        order.addToOrder(ibalgin, 5, pharmacy.getStorage());
-        order.addToOrder(agen, 2, pharmacy.getStorage());
-        order.addToOrder(paralen, 10, pharmacy.getStorage());
-        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
-        order.takeFromOrder(paralen, pharmacy.getStorage());
-        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
-        for(int i = 0; i < 9; i++) {
-            order.takeFromOrder(paralen, pharmacy.getStorage());
-        }
-        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
+        //login as Pharmacist
+        LoginService.verifyLogin(username, password, pharmacy);
+        pharmacy.logout(pharmacy.getLoggedInUser());
 
         //login as Customer
         String insuranceNumber = "0000000010";
         LoginService.verifyLogin(insuranceNumber, pharmacy);
-        pharmacy.logout(pharmacy.getLoggedInUser());
 
-        //login as Pharmacist
-        LoginService.verifyLogin(username, password, pharmacy);
-        pharmacy.logout(pharmacy.getLoggedInUser());
+        //adding and removing medicine from order
+        pharmacy.getOrder().addToOrder(ibalgin, 5, pharmacy.getStorage());
+        pharmacy.getOrder().addToOrder(agen, 2, pharmacy.getStorage());
+        pharmacy.getOrder().addToOrder(paralen, 10, pharmacy.getStorage());
+        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
+        pharmacy.getOrder().takeFromOrder(paralen, pharmacy.getStorage());
+        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
+        for(int i = 0; i < 9; i++) {
+            pharmacy.getOrder().takeFromOrder(paralen, pharmacy.getStorage());
+        }
+        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
+
+        //payment
+        pharmacy.getLoggedInUser().payOrder(pharmacy.getOrder());
+
     }
 }

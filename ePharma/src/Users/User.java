@@ -1,5 +1,7 @@
 package Users;
 
+import Pharmacy.Order;
+
 public class User {
     private String userId;
     private boolean loginStatus;
@@ -24,5 +26,8 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public void payOrder(Order order) {
     }
 }
