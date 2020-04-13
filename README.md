@@ -26,8 +26,8 @@ Požiadavky na projekt:
 
 - polymorfizmus:
 	- interface Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Payment.java#L5
-	- class Pharmacist implements Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Pharmacist.java#L5
-	- class Customer implements Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Customer.java#L5
+	- class Pharmacist implementuje Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Pharmacist.java#L5
+	- class Customer implementuje  Payment https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Customer.java#L5
 
 - agregacia:
 	- Pharmacy agreguje Order https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Pharmacy/Pharmacy.java#L13
