@@ -4,12 +4,13 @@ Softvér na správu a automatizáciu procesov v lekárni - ePharma
 Michal Pidanič ID: 103090
 
 1. Popis projektu
-	1.1 Úvod
+
+1.1 Úvod
 Môj projekt ePharma na predmet Objektovo orientované programovanie je ako už z názvu vyplýva softvér pre automatizáciu lekárne.
 Chcem vytvoriť simuláciu bežných procesov v lekárni, ako je predaj liekov zo strany lekárne, resp. ich nákup zo strany zákazníka. V simulácii chcem ukázať, že v dnešnej dobe už v prípade preplnenej lekárne zákazník nemusí čakať na výdaj lieku v rade - stačí pristúpiť k výdajnému automatu, prihlásiť sa pod číslom poistenca a jednoducho si požadovaný voľnopredajný liek zakúpiť prípadne pomocou e-receptu vybrať liek na ktorý máme predpis.
 Súčasne môžu registrovaní zamestnanci lekárne sledovať stav jednotlivých položiek v sklade a priebežne dopĺňať zásoby.
 
-	1.2 Popis jednotlivých tried
+1.2 Popis jednotlivých tried
 User - užívatelia sa v mojom programe delia na dve hlavné časti a to zákazníci(Customer)  a pracovníci lekárne (Pharmacist). Zákazníci sa do systému prihlasujú pomocou čísla poistenca a zamestnanci pomocou im prideleným prihlasovacím údajom tj. meno a heslo.  V princípe program pre obe skupiny užívateľov funguje skoro rovnako. Zákazníci majú prístup k ponuke liekov odkiaľ si môžu lieky pridávať do košíka, resp. pre zamestnancov táto časť slúži ako pokladňa. Zamestnanci navyše majú prístup k skladu, ktorý môžu sledovať a následne dopĺňať lieky, ktoré chýbajú, prípadne nové lieky, ktoré sa v sklade ešte nenachádzajú. Zamestnanci majú aj svojho nadriadeného (Headpharmacist), ktorý môže do systému registrovať nových zamestnancov.
 
 Medicine - jedna z hlavných tried, s ktorými program pracuje. Medicine má niekoľko atribútov ako je názov lieku, jeho cena a informácia o tom ci liek je alebo nie je určený na voľný predaj.
