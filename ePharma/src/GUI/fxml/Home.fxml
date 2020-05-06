@@ -12,31 +12,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Controller">
+<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.HomeController">
    <children>
       <VBox layoutY="63.0" prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #3F9CDB;">
          <children>
-            <Button fx:id="btnMenu" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" pickOnBounds="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Styling.css" text="Ponuka" textFill="WHITE">
+            <Button fx:id="btnMenu" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" pickOnBounds="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Ponuka" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnOrder" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Styling.css" text="Košík" textFill="WHITE">
+            <Button fx:id="btnOrder" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Košík" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnStorage" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Styling.css" text="Sklad" textFill="WHITE">
+            <Button fx:id="btnStorage" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Sklad" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnUsers" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Styling.css" text="Užívatelia" textFill="WHITE">
+            <Button fx:id="btnUsers" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Užívatelia" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnLogout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Styling.css" text="Odhlásiť sa" textFill="WHITE">
+            <Button fx:id="btnLogout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Odhlásiť sa" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
