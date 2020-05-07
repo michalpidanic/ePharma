@@ -33,7 +33,7 @@
             <Insets left="5.0" right="75.0" />
          </padding>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="67.0" stylesheets="@../css/button.css" text="Kúpiť">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="28.0" prefWidth="67.0" stylesheets="@../css/Item.css" text="Kúpiť">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
