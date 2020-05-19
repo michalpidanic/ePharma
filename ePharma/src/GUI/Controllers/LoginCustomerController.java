@@ -1,5 +1,7 @@
 package GUI.Controllers;
 
+import Pharmacy.Pharmacy;
+import Services.LoginService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,5 +45,26 @@ public class LoginCustomerController implements Initializable {
         window.hide();
         window.setScene(newScene);
         window.show();
+    }
+
+    @FXML
+    public void loginCustomer(ActionEvent event) throws IOException {
+        if(event.getSource() == btnLogin) {
+            if(LoginService.verifyLogin(tfInsuranceNumber.getText(), Pharmacy.getInstance())) {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/GUI/fxml/Home.fxml"));
+                Parent content = loader.load();
+
+                Scene newScene = new Scene(content);
+
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                window.hide();
+                window.setScene(newScene);
+                window.show();
+            } else {
+                System.out.println("zle cislo");
+            }
+        }
     }
 }

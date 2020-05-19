@@ -43,13 +43,13 @@
             <RowConstraints maxHeight="275.14369201660156" minHeight="10.0" prefHeight="76.01934814453125" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField fx:id="tfUsername" prefHeight="27.0" prefWidth="534.0" style="-fx-background-color: #E6E6E6; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfUsername" onAction="#loginUser" prefHeight="27.0" prefWidth="534.0" style="-fx-background-color: #E6E6E6; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="43.0" text="Meno:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <Button fx:id="btnLogin" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" stylesheets="@../css/Login.css" text="Prihlásiť" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#loginUser" prefHeight="26.0" prefWidth="100.0" stylesheets="@../css/Login.css" text="Prihlásiť" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
@@ -64,7 +64,7 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </Label>
-            <PasswordField fx:id="pfPassword" style="-fx-background-color: #E6E6E6; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <PasswordField fx:id="pfPassword" onAction="#loginUser" style="-fx-background-color: #E6E6E6; -fx-background-radius: 15px;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
