@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class LoginService {
-    public static void verifyLogin(String id, Pharmacy pharmacy) {
+    public static boolean verifyLogin(String id, Pharmacy pharmacy) {
         boolean found = false;
         String tempId = "";
         String prescription= "";
@@ -27,7 +27,7 @@ public class LoginService {
                         customer.setHasPrescription(true);
                     }
                     pharmacy.login(customer);
-                    return;
+                    return true;
                 }
             }
             scan.close();
@@ -37,17 +37,21 @@ public class LoginService {
         }
 
         System.out.println("Wrong insurance number, please try again.");
+        return false;
     }
 
-    public static void verifyLogin(String username, String password, Pharmacy pharmacy) {
+    public static boolean verifyLogin(String username, String password, Pharmacy pharmacy) {
         if(pharmacy.getEmployeesLogin().containsKey(username)) {
             if(pharmacy.getEmployeesLogin().get(username).equals(password)) {
                 pharmacy.login(pharmacy.findUser(username, pharmacy.getEmployees()));
+                return true;
             } else {
                 System.out.println("Incorrect password, please try again.");
+                return false;
             }
         } else {
             System.out.println("Incorrect username, please try again.");
+            return false;
         }
     }
 }
