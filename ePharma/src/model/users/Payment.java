@@ -1,6 +1,6 @@
-package users;
+package model.users;
 
-import pharmacy.Order;
+import model.pharmacy.Order;
 
 public interface Payment {
     public void payOrder(Order order);

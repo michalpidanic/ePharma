@@ -1,4 +1,4 @@
-package pharmacy;
+package model.pharmacy;
 
 public class Medicine {
     private String name;

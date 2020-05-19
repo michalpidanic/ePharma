@@ -1,6 +1,6 @@
-package users;
+package model.users;
 
-import pharmacy.Pharmacy;
+import model.pharmacy.Pharmacy;
 
 public class HeadPharmacist extends Pharmacist {
     public HeadPharmacist(String name, String password, String id) {

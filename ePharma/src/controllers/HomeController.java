@@ -1,11 +1,11 @@
-package GUI.controllers;
+package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import pharmacy.Pharmacy;
+import model.pharmacy.Pharmacy;
 import services.SwitchScreenService;
 
 import java.io.IOException;
@@ -63,7 +63,7 @@ public class HomeController implements Initializable {
             Pharmacy pharmacy = Pharmacy.getInstance();
             pharmacy.logout(pharmacy.getLoggedInUser());
 
-            SwitchScreenService.newScreen(event, "/GUI/views/LoginCustomer.fxml");
+            SwitchScreenService.newScreen(event, "/views/LoginCustomer.fxml");
         }
     }
 }

@@ -1,7 +1,7 @@
-package pharmacy;
+package model.pharmacy;
 
 import services.LoginService;
-import users.HeadPharmacist;
+import model.users.HeadPharmacist;
 
 public class Main {
     public static void main(String[] args) {

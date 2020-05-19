@@ -1,7 +1,7 @@
 package services;
 
-import pharmacy.Pharmacy;
-import users.Customer;
+import model.pharmacy.Pharmacy;
+import model.users.Customer;
 
 import java.io.File;
 import java.io.FileNotFoundException;

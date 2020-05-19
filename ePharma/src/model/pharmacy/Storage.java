@@ -1,4 +1,4 @@
-package pharmacy;
+package model.pharmacy;
 import java.util.ArrayList;
 
 public class Storage {

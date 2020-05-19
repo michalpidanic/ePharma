@@ -14,31 +14,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
    <children>
       <VBox layoutY="63.0" prefHeight="340.0" prefWidth="200.0" style="-fx-background-color: #3F9CDB;">
          <children>
-            <Button fx:id="btnMenu" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" pickOnBounds="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Ponuka" textFill="WHITE">
+            <Button fx:id="btnMenu" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" pickOnBounds="false" prefHeight="40.0" prefWidth="200.0" stylesheets="@css/Sidebar.css" text="Ponuka" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnOrder" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Košík" textFill="WHITE">
+            <Button fx:id="btnOrder" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@css/Sidebar.css" text="Košík" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnStorage" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Sklad" textFill="WHITE">
+            <Button fx:id="btnStorage" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@css/Sidebar.css" text="Sklad" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnUsers" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Používatelia" textFill="WHITE">
+            <Button fx:id="btnUsers" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@css/Sidebar.css" text="Používatelia" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnLogout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@../css/Sidebar.css" text="Odhlásiť sa" textFill="WHITE">
+            <Button fx:id="btnLogout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="40.0" prefWidth="200.0" stylesheets="@css/Sidebar.css" text="Odhlásiť sa" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -165,7 +165,7 @@
                   <TextField GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button alignment="CENTER" mnemonicParsing="false" stylesheets="@../css/Item.css" text="Registrovať" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Button alignment="CENTER" mnemonicParsing="false" stylesheets="@css/Item.css" text="Registrovať" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                   <Label text="Meno používateľa:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <Label text="Používateľské ID:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <Label text="Heslo:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
