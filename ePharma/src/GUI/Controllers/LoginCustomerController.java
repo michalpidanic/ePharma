@@ -1,24 +1,21 @@
 package GUI.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginCustomerController implements Initializable {
-    @FXML
-    private Label btnClose;
-
     @FXML
     private TextField tfInsuranceNumber;
 
@@ -34,18 +31,17 @@ public class LoginCustomerController implements Initializable {
     }
 
     @FXML
-    public void setBtnSwitchUser(ActionEvent event) throws IOException {
-        if(event.getSource() == btnSwitchUser) {
-            Parent root = FXMLLoader.load(getClass().getResource("fxml/LoginUser.fxml"));
+    public void switchUser(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/GUI/fxml/LoginUser.fxml"));
+        Parent content = loader.load();
 
-            Scene scene = btnSwitchUser.getScene();
-        }
-    }
+        Scene newScene = new Scene(content);
 
-    @FXML
-    private void handleClose(MouseEvent event) {
-        if(event.getSource() == btnClose) {
-            System.exit(0);
-        }
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.hide();
+        window.setScene(newScene);
+        window.show();
     }
 }

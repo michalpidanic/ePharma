@@ -173,10 +173,5 @@
             </GridPane>
          </children>
       </StackPane>
-      <Label fx:id="btnClose" layoutX="658.0" onMouseClicked="#handleClose" prefHeight="22.0" prefWidth="17.0" text="X" textFill="#404040">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

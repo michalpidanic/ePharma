@@ -1,6 +1,6 @@
 .button
 {
-    -fx-background : none;
+    -fx-background-color : transparent;
 }
 .button:hover
 {

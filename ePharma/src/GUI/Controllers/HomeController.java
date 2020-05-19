@@ -4,9 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,9 +24,6 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button btnLogout;
-
-    @FXML
-    private Label btnClose;
 
     @FXML
     private GridPane pnMenu;
@@ -63,13 +58,6 @@ public class HomeController implements Initializable {
 
         } else if(event.getSource() == btnLogout) {
             pnMenu.toFront();
-        }
-    }
-
-    @FXML
-    private void handleClose(MouseEvent event) {
-        if(event.getSource() == btnClose) {
-            System.exit(0);
         }
     }
 }
