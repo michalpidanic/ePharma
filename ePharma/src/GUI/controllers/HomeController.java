@@ -5,7 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import pharmacy.Pharmacy;
+import services.SwitchScreenService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,7 +46,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void handleClicks(ActionEvent event) {
+    private void handleClicks(ActionEvent event) throws IOException {
         if(event.getSource() == btnMenu) {
             pnMenu.toFront();
 
@@ -57,7 +60,10 @@ public class HomeController implements Initializable {
             pnUsers.toFront();
 
         } else if(event.getSource() == btnLogout) {
-            pnMenu.toFront();
+            Pharmacy pharmacy = Pharmacy.getInstance();
+            pharmacy.logout(pharmacy.getLoggedInUser());
+
+            SwitchScreenService.newScreen(event, "/GUI/views/LoginCustomer.fxml");
         }
     }
 }

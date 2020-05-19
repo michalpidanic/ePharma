@@ -1,18 +1,14 @@
 package GUI.controllers;
 
 import GUI.views.AllertBox;
-import pharmacy.Pharmacy;
-import services.LoginService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import pharmacy.Pharmacy;
+import services.LoginService;
+import services.SwitchScreenService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,33 +34,14 @@ public class LoginUserController implements Initializable {
 
     @FXML
     public void switchUser(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/views/LoginCustomer.fxml"));
-        Parent content = loader.load();
-
-        Scene newScene = new Scene(content);
-
-        Stage window = (Stage)(((Node)event.getSource()).getScene().getWindow());
-
-        window.setScene(newScene);
-        window.show();
+        SwitchScreenService.newScreen(event, "/GUI/views/LoginCustomer.fxml");
     }
 
     @FXML
     public void loginUser(ActionEvent event) throws IOException {
         if(event.getSource() == btnLogin) {
             if(LoginService.verifyLogin(tfUsername.getText(), pfPassword.getText(), Pharmacy.getInstance())) {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/GUI/views/Home.fxml"));
-                Parent content = loader.load();
-
-                Scene newScene = new Scene(content);
-
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-                window.hide();
-                window.setScene(newScene);
-                window.show();
+                SwitchScreenService.newScreen(event, "/GUI/views/Home.fxml");
             } else {
                 AllertBox.display("Nesprávne prihlasovacie údaje!");
             }
