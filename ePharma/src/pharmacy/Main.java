@@ -1,7 +1,7 @@
-package Pharmacy;
+package pharmacy;
 
-import Services.LoginService;
-import Users.HeadPharmacist;
+import services.LoginService;
+import users.HeadPharmacist;
 
 public class Main {
     public static void main(String[] args) {

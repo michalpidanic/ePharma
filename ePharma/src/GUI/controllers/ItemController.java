@@ -1,4 +1,4 @@
-package GUI.Controllers;
+package GUI.controllers;
 
 public class ItemController {
 }

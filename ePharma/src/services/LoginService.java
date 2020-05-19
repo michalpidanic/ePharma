@@ -1,7 +1,7 @@
-package Services;
+package services;
 
-import Pharmacy.Pharmacy;
-import Users.Customer;
+import pharmacy.Pharmacy;
+import users.Customer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +36,6 @@ public class LoginService {
             e.printStackTrace();
         }
 
-        System.out.println("Wrong insurance number, please try again.");
         return false;
     }
 
@@ -46,11 +45,9 @@ public class LoginService {
                 pharmacy.login(pharmacy.findUser(username, pharmacy.getEmployees()));
                 return true;
             } else {
-                System.out.println("Incorrect password, please try again.");
                 return false;
             }
         } else {
-            System.out.println("Incorrect username, please try again.");
             return false;
         }
     }

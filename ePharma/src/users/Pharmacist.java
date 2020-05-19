@@ -1,6 +1,6 @@
-package Users;
+package users;
 
-import Pharmacy.Order;
+import pharmacy.Order;
 
 public class Pharmacist extends User implements Payment {
     private String username;

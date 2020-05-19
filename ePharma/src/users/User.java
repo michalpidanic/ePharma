@@ -1,6 +1,6 @@
-package Users;
+package users;
 
-import Pharmacy.Order;
+import pharmacy.Order;
 
 public class User {
     private String userId;

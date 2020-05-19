@@ -1,4 +1,4 @@
-package Pharmacy;
+package pharmacy;
 
 public class Medicine {
     private String name;

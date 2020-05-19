@@ -1,7 +1,8 @@
-package GUI.Controllers;
+package GUI.controllers;
 
-import Pharmacy.Pharmacy;
-import Services.LoginService;
+import GUI.views.AllertBox;
+import pharmacy.Pharmacy;
+import services.LoginService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +39,7 @@ public class LoginUserController implements Initializable {
     @FXML
     public void switchUser(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/GUI/fxml/LoginCustomer.fxml"));
+        loader.setLocation(getClass().getResource("/GUI/views/LoginCustomer.fxml"));
         Parent content = loader.load();
 
         Scene newScene = new Scene(content);
@@ -54,7 +55,7 @@ public class LoginUserController implements Initializable {
         if(event.getSource() == btnLogin) {
             if(LoginService.verifyLogin(tfUsername.getText(), pfPassword.getText(), Pharmacy.getInstance())) {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/GUI/fxml/Home.fxml"));
+                loader.setLocation(getClass().getResource("/GUI/views/Home.fxml"));
                 Parent content = loader.load();
 
                 Scene newScene = new Scene(content);
@@ -65,7 +66,7 @@ public class LoginUserController implements Initializable {
                 window.setScene(newScene);
                 window.show();
             } else {
-                System.out.println("zle prihlasovacie udaje");
+                AllertBox.display("Nesprávne prihlasovacie údaje!");
             }
         }
     }

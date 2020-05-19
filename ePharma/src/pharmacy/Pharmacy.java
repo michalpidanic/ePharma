@@ -1,5 +1,5 @@
-package Pharmacy;
-import Users.*;
+package pharmacy;
+import users.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

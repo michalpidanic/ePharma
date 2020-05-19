@@ -1,6 +1,6 @@
-package Users;
+package users;
 
-import Pharmacy.Order;
+import pharmacy.Order;
 
 public class Customer extends User implements Payment{
     private boolean hasPrescription;
