@@ -162,10 +162,10 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="436.0" style="-fx-background-color: #E6E6E6;" GridPane.columnIndex="1" />
                   <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="436.0" style="-fx-background-color: #E6E6E6;" GridPane.columnIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button alignment="CENTER" mnemonicParsing="false" stylesheets="@css/Item.css" text="Registrovať" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <TextField fx:id="tfNewUsername" onAction="#registrationHandler" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <TextField fx:id="tfNewID" onAction="#registrationHandler" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <PasswordField fx:id="pfNewPassword" onAction="#registrationHandler" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="btnRegister" alignment="CENTER" mnemonicParsing="false" onAction="#registrationHandler" stylesheets="@css/Item.css" text="Registrovať" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                   <Label text="Meno používateľa:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <Label text="Používateľské ID:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <Label text="Heslo:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
