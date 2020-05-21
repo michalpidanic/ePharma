@@ -24,5 +24,4 @@ public class SwitchScreenService {
         window.setScene(newScene);
         window.show();
     }
-
 }

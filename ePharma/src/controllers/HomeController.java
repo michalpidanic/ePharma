@@ -4,11 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import model.pharmacy.Medicine;
 import model.pharmacy.Pharmacy;
+import model.pharmacy.Storage;
 import model.users.HeadPharmacist;
+import model.users.Pharmacist;
 import services.EmptyTextFieldException;
 import services.SwitchScreenService;
 
@@ -56,14 +60,34 @@ public class HomeController implements Initializable {
     @FXML
     private Button btnRegister;
 
+    @FXML
+    private TextField tfNewArticle;
+
+    @FXML
+    private TextField tfNewPrice;
+
+    @FXML
+    private TextField tfNewPieces;
+
+    @FXML
+    private CheckBox chckPrescription;
+
+    @FXML
+    private Button btnAdd;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        if(Pharmacy.getInstance().getLoggedInUser() instanceof Pharmacist) {
+            btnStorage.setVisible(true);
+            if(Pharmacy.getInstance().getLoggedInUser() instanceof HeadPharmacist) {
+                btnUsers.setVisible(true);
+            }
+        }
     }
 
     @FXML
-    private void handleClicks(ActionEvent event) throws IOException {
+    private void sideMenuHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnMenu) {
             pnMenu.toFront();
 
@@ -97,6 +121,31 @@ public class HomeController implements Initializable {
                 } else {
                     HeadPharmacist admin = (HeadPharmacist) Pharmacy.getInstance().getLoggedInUser();
                     admin.registerUser(name, password, id, Pharmacy.getInstance());
+                }
+            } catch (EmptyTextFieldException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    private void addToStorageHandler(ActionEvent event) {
+        if(event.getSource() == btnAdd) {
+            String name = tfNewArticle.getText();
+            String strPieces = tfNewPieces.getText();
+            String strPrice = tfNewPrice.getText();
+            boolean prescription = chckPrescription.isSelected();
+
+            try {
+                if(name == null || strPieces == null || strPrice == null) {
+                    throw new EmptyTextFieldException();
+                } else {
+                    int pieces = Integer.parseInt(strPieces);
+                    double price = Double.parseDouble(strPrice);
+                    Medicine medicine = new Medicine(name, price, prescription);
+                    Storage storage = Pharmacy.getInstance().getStorage();
+
+                    storage.addToStorage(medicine, pieces);
                 }
             } catch (EmptyTextFieldException e) {
                 System.out.println(e.getMessage());
