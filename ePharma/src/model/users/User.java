@@ -12,6 +12,10 @@ public class User {
         this.loginStatus = false;
     }
 
+    public int payOrder(Order order) {
+        return 0;
+    }
+
     public boolean isLoginStatus() {
         return loginStatus;
     }
@@ -26,9 +30,5 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public int payOrder(Order order) {
-        return 0;
     }
 }

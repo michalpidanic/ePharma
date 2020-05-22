@@ -79,6 +79,8 @@ public class HomeController implements Initializable {
     @FXML
     private Button btnPay;
 
+    @FXML
+    private Button btnCancel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -172,6 +174,18 @@ public class HomeController implements Initializable {
             } else {
                 AlertBox.display("Chyba", "Nákupný košík je prázdny!");
             }
+        }
+    }
+
+    @FXML
+    private void cancelOrderHandler(ActionEvent event) {
+        if(event.getSource() == btnCancel) {
+            Pharmacy pharmacy = Pharmacy.getInstance();
+            pharmacy.getOrder().cancelOrder(pharmacy.getStorage());
+
+            lblSum.setText("0.00 €");
+
+            AlertBox.display("Zrušené", "Objednávka bola zrušená!");
         }
     }
 }
