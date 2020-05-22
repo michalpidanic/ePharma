@@ -12,7 +12,7 @@ import model.users.HeadPharmacist;
 import model.users.Pharmacist;
 import services.EmptyTextFieldException;
 import services.SwitchScreenService;
-import views.AllertBox;
+import views.AlertBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -166,11 +166,11 @@ public class HomeController implements Initializable {
             lblSum.setText("0.00 €");
 
             if(value == 1) {
-                AllertBox.display("Objednávka bola zaplatená!");
+                AlertBox.display("Platba", "Objednávka bola zaplatená!");
             } else if(value == 2) {
-                AllertBox.display("Objednávka vyždauje lekársky predpis!");
+                AlertBox.display("Chyba", "Objednávka vyždauje lekársky predpis!");
             } else {
-                AllertBox.display("Nákupný košík je prázdny!");
+                AlertBox.display("Chyba", "Nákupný košík je prázdny!");
             }
         }
     }

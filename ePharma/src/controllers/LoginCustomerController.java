@@ -1,6 +1,6 @@
 package controllers;
 
-import views.AllertBox;
+import views.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,7 +40,7 @@ public class LoginCustomerController implements Initializable {
             if(LoginService.verifyLogin(tfInsuranceNumber.getText(), Pharmacy.getInstance())) {
                 SwitchScreenService.newScreen(event, "/views/Home.fxml");
             } else {
-                AllertBox.display("Nesprávne číslo poistenca!");
+                AlertBox.display("Chyba", "Nesprávne číslo poistenca!");
             }
         }
     }

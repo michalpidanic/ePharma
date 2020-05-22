@@ -218,7 +218,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #E6E6E6; -fx-border-width: 3px; -fx-border-style: solid hidden hidden hidden;" GridPane.rowIndex="2">
                      <children>
-                        <Label fx:id="lblSum" text="SUMA">
+                        <Label fx:id="lblSum" text="0.00 €">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>

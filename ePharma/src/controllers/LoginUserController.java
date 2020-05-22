@@ -1,6 +1,6 @@
 package controllers;
 
-import views.AllertBox;
+import views.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,7 +43,7 @@ public class LoginUserController implements Initializable {
             if(LoginService.verifyLogin(tfUsername.getText(), pfPassword.getText(), Pharmacy.getInstance())) {
                 SwitchScreenService.newScreen(event, "/views/Home.fxml");
             } else {
-                AllertBox.display("Nesprávne prihlasovacie údaje!");
+                AlertBox.display("Chyba", "Nesprávne prihlasovacie údaje!");
             }
         }
     }
