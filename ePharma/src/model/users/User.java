@@ -28,6 +28,7 @@ public class User {
         this.userId = userId;
     }
 
-    public void payOrder(Order order) {
+    public int payOrder(Order order) {
+        return 0;
     }
 }

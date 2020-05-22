@@ -3,10 +3,7 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import model.pharmacy.Medicine;
 import model.pharmacy.Pharmacy;
@@ -15,6 +12,7 @@ import model.users.HeadPharmacist;
 import model.users.Pharmacist;
 import services.EmptyTextFieldException;
 import services.SwitchScreenService;
+import views.AllertBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -75,14 +73,20 @@ public class HomeController implements Initializable {
     @FXML
     private Button btnAdd;
 
+    @FXML
+    private Label lblSum;
+
+    @FXML
+    private Button btnPay;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(Pharmacy.getInstance().getLoggedInUser() instanceof Pharmacist) {
+        if(Pharmacy.getInstance().getLoggedInUser() instanceof HeadPharmacist) {
             btnStorage.setVisible(true);
-            if(Pharmacy.getInstance().getLoggedInUser() instanceof HeadPharmacist) {
-                btnUsers.setVisible(true);
-            }
+            btnUsers.setVisible(true);
+        } else if(Pharmacy.getInstance().getLoggedInUser() instanceof Pharmacist) {
+            btnStorage.setVisible(true);
         }
     }
 
@@ -149,6 +153,24 @@ public class HomeController implements Initializable {
                 }
             } catch (EmptyTextFieldException e) {
                 System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    private void payOrderHandler(ActionEvent event) {
+        if(event.getSource() == btnPay) {
+            Pharmacy pharmacy = Pharmacy.getInstance();
+            int value = pharmacy.getLoggedInUser().payOrder(pharmacy.getOrder());
+
+            lblSum.setText("0.00 €");
+
+            if(value == 1) {
+                AllertBox.display("Objednávka bola zaplatená!");
+            } else if(value == 2) {
+                AllertBox.display("Objednávka vyždauje lekársky predpis!");
+            } else {
+                AllertBox.display("Nákupný košík je prázdny!");
             }
         }
     }

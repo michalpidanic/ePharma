@@ -10,22 +10,22 @@ public class Customer extends User implements Payment{
         this.hasPrescription = false;
     }
 
-    //TODO alerts instead of println
     @Override
-    public void payOrder(Order order) {
+    public int payOrder(Order order) {
         if(order.getTotalPrice() > 0) {
             if (order.isPrescriptionNeeded()) {
                 if (this.hasPrescription) {
-                    System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
                     order.cancelOrder();
+                    return 1;
                 } else {
-                    System.out.println("Objednávka vyžaduje lekársky predpis!");
+                    return 2;
                 }
             } else {
-                System.out.println("Zaplatené: " + order.getTotalPrice() + "€" );
                 order.cancelOrder();
+                return 1;
             }
         }
+        return 0;
     }
 
     public boolean isHasPrescription() {

@@ -171,6 +171,29 @@
                   </HBox>
                </children>
             </GridPane>
+            <GridPane fx:id="pnMenu" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="288.97694396972656" minHeight="10.0" prefHeight="283.70323181152344" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6E6;">
+                     <children>
+                        <Label alignment="CENTER" text="Ponuka" textFill="#404040">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
             <GridPane fx:id="pnOrder" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -193,28 +216,18 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #E6E6E6; -fx-border-width: 3px; -fx-border-style: solid hidden hidden hidden;" GridPane.rowIndex="2" />
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnMenu" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="288.97694396972656" minHeight="10.0" prefHeight="283.70323181152344" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6E6;">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #E6E6E6; -fx-border-width: 3px; -fx-border-style: solid hidden hidden hidden;" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" text="Ponuka" textFill="#404040">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
+                        <Label fx:id="lblSum" text="SUMA">
                            <HBox.margin>
-                              <Insets left="30.0" />
+                              <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </Label>
+                        <Button fx:id="btnPay" mnemonicParsing="false" onAction="#payOrderHandler" stylesheets="@css/Item.css" text="Zaplatiť">
+                           <HBox.margin>
+                              <Insets left="20.0" right="30.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                   </HBox>
                </children>
