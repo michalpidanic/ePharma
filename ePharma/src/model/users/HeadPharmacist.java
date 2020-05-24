@@ -2,6 +2,8 @@ package model.users;
 
 import model.pharmacy.Pharmacy;
 
+import java.io.Serializable;
+
 public class HeadPharmacist extends Pharmacist {
     public HeadPharmacist(String name, String password, String id) {
         super(name, password, id);

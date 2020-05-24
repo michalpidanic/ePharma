@@ -1,10 +1,11 @@
 package model.pharmacy;
 import model.users.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Pharmacy {
+public class Pharmacy implements Serializable {
     private static Pharmacy instance;
     private ArrayList<Pharmacist> employees;
     private HashMap<String, String> employeesLogin;
@@ -34,6 +35,7 @@ public class Pharmacy {
 
     public void logout(User user) {
         this.loggedInUser = null;
+        this.order = null;
         user.setLoginStatus(false);
     }
 

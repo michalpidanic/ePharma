@@ -1,22 +1,17 @@
 package model.pharmacy;
 
-import services.LoginService;
 import model.users.HeadPharmacist;
+import services.SerializationService;
+
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        int id = 0;
-        String username = "admin1";
-        String password = "admin1";
-
+    public static void main(String[] args) throws IOException {
         //initialization
         Pharmacy pharmacy = Pharmacy.getInstance();
-        HeadPharmacist boss = new HeadPharmacist("admin", "admin", String.valueOf(++id));
+        HeadPharmacist boss = new HeadPharmacist("admin", "admin", "1");
         pharmacy.getEmployees().add(boss);
         pharmacy.getEmployeesLogin().put(boss.getUsername(), boss.getPassword());
-
-        //new employee registration
-        boss.registerUser("admin1", "admin1", String.valueOf(++id), pharmacy);
 
         //creating medicine objects
         Medicine paralen = new Medicine("Paralen", 1.99, false);
@@ -42,28 +37,6 @@ public class Main {
         pharmacy.getStorage().addToStorage(nebilet, 10);
         pharmacy.getStorage().addToStorage(stilnox, 10);
 
-        //login as Pharmacist
-        LoginService.verifyLogin(username, password, pharmacy);
-        pharmacy.logout(pharmacy.getLoggedInUser());
-
-        //login as Customer
-        String insuranceNumber = "0000000010";
-        LoginService.verifyLogin(insuranceNumber, pharmacy);
-
-        //adding and removing medicine from order
-        pharmacy.getOrder().addToOrder(ibalgin, 5, pharmacy.getStorage());
-        pharmacy.getOrder().addToOrder(agen, 2, pharmacy.getStorage());
-        pharmacy.getOrder().addToOrder(paralen, 10, pharmacy.getStorage());
-        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
-        pharmacy.getOrder().takeFromOrder(paralen, pharmacy.getStorage());
-        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
-        for(int i = 0; i < 9; i++) {
-            pharmacy.getOrder().takeFromOrder(paralen, pharmacy.getStorage());
-        }
-        System.out.println("pocet paralenov v sklade " + pharmacy.getStorage().getQuantity().get(pharmacy.getStorage().getItems().indexOf(paralen)));
-
-        //payment
-        pharmacy.getLoggedInUser().payOrder(pharmacy.getOrder());
-
+        SerializationService.serialize(pharmacy);
     }
 }

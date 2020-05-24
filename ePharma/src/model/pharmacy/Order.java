@@ -1,7 +1,8 @@
 package model.pharmacy;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Serializable {
     private String orderId;
     private ArrayList<Medicine> items;
     private ArrayList<Integer> quantity;

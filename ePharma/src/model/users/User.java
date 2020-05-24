@@ -2,7 +2,9 @@ package model.users;
 
 import model.pharmacy.Order;
 
-public class User {
+import java.io.Serializable;
+
+public class User  implements Serializable {
     private String userId;
     private boolean loginStatus;
 

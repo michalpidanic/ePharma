@@ -11,6 +11,7 @@ import model.pharmacy.Storage;
 import model.users.HeadPharmacist;
 import model.users.Pharmacist;
 import services.EmptyTextFieldException;
+import services.SerializationService;
 import services.SwitchScreenService;
 import views.AlertBox;
 
@@ -19,6 +20,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+    App app = new App();
+
     @FXML
     private Button btnMenu;
 
@@ -84,10 +87,18 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(Pharmacy.getInstance().getLoggedInUser() instanceof HeadPharmacist) {
+        try {
+            app.deserializeInstance();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if(app.getPharmacy().getLoggedInUser() instanceof HeadPharmacist) {
             btnStorage.setVisible(true);
             btnUsers.setVisible(true);
-        } else if(Pharmacy.getInstance().getLoggedInUser() instanceof Pharmacist) {
+        } else if(app.getPharmacy().getLoggedInUser() instanceof Pharmacist) {
             btnStorage.setVisible(true);
         }
     }
@@ -107,9 +118,10 @@ public class HomeController implements Initializable {
             pnUsers.toFront();
 
         } else if(event.getSource() == btnLogout) {
-            Pharmacy pharmacy = Pharmacy.getInstance();
+            Pharmacy pharmacy = app.getPharmacy();
             pharmacy.logout(pharmacy.getLoggedInUser());
 
+            SerializationService.serialize(app.getPharmacy());
             SwitchScreenService.newScreen(event, "/views/LoginCustomer.fxml");
         }
     }

@@ -1,7 +1,8 @@
 package model.pharmacy;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Storage {
+public class Storage implements Serializable {
     private ArrayList<Medicine> items;
     private ArrayList<Integer> quantity;
 
@@ -32,6 +33,15 @@ public class Storage {
         } else {
             //product not available
         }
+    }
+
+    public Medicine findMedicine(String name) {
+        for (Medicine medicine : this.getItems()) {
+            if (medicine.getName().equals(name)) {
+                return medicine;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Medicine> getItems() {

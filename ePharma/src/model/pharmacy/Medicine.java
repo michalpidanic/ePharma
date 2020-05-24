@@ -1,6 +1,8 @@
 package model.pharmacy;
 
-public class Medicine {
+import java.io.Serializable;
+
+public class Medicine implements Serializable {
     private String name;
     private double price;
     private boolean prescription;
