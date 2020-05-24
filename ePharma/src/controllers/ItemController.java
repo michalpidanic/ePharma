@@ -52,10 +52,20 @@ public class ItemController implements Initializable {
             Order order = pharmacy.getOrder();
             Medicine medicine = storage.findMedicine(name);
 
-            lblPieces.setText(String.valueOf(pieces - 1));
-
             order.takeFromOrder(medicine, storage);
             SerializationService.serialize(app.getPharmacy());
+        }
+    }
+
+    @FXML
+    public void setElements(String name, double price, boolean prescription, int pieces) {
+        lblName.setText(name);
+        lblPrice.setText(String.valueOf(price));
+        lblPieces.setText(String.valueOf(pieces));
+        if(prescription) {
+            lblPrescription.setText("na predpis");
+        } else {
+            lblPrescription.setText("voľný predaj");
         }
     }
 }

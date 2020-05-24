@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.pharmacy.Medicine;
-import model.pharmacy.Order;
 import model.pharmacy.Pharmacy;
 import model.pharmacy.Storage;
 import services.SerializationService;
@@ -50,11 +48,20 @@ public class ProductController implements Initializable {
             int pieces = Integer.parseInt(tfPieces.getText());
             Pharmacy pharmacy = app.getPharmacy();
             Storage storage = pharmacy.getStorage();
-            Order order = pharmacy.getOrder();
-            Medicine medicine = storage.findMedicine(name);
 
-            order.addToOrder(medicine, pieces, storage);
+            app.getPharmacy().getOrder().addToOrder(storage.findMedicine(name), pieces, storage);
             SerializationService.serialize(app.getPharmacy());
+        }
+    }
+
+    @FXML
+    public void setElements(String name, double price, boolean prescription) {
+        lblName.setText(name);
+        lblPrice.setText(String.valueOf(price));
+        if(prescription) {
+            lblPrescription.setText("na predpis");
+        } else {
+            lblPrescription.setText("voľný predaj");
         }
     }
 }

@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //initialization
         Pharmacy pharmacy = Pharmacy.getInstance();
-        HeadPharmacist boss = new HeadPharmacist("admin", "admin", "1");
+        HeadPharmacist boss = new HeadPharmacist("admin", "admin", "0");
         pharmacy.getEmployees().add(boss);
         pharmacy.getEmployeesLogin().put(boss.getUsername(), boss.getPassword());
 

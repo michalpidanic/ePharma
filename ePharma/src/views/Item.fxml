@@ -6,29 +6,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="475.0" style="-fx-background-color: fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
     <children>
         <Label fx:id="lblName" prefHeight="17.0" prefWidth="85.0" text="Názov lieku">
             <HBox.margin>
-                <Insets left="30.0" right="20.0" />
+                <Insets left="20.0" right="10.0" />
             </HBox.margin>
         </Label>
         <Label fx:id="lblPrice" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="45.0" text="0.00">
             <HBox.margin>
-                <Insets left="20.0" />
+                <Insets left="10.0" />
             </HBox.margin>
         </Label>
         <Label text="€">
             <HBox.margin>
-                <Insets right="20.0" />
+                <Insets right="10.0" />
             </HBox.margin>
         </Label>
-        <Label fx:id="lblPrescription" prefHeight="17.0" prefWidth="73.0" text="voľný predaj">
+        <Label fx:id="lblPrescription" prefHeight="17.0" prefWidth="77.0" text="voľný predaj">
             <HBox.margin>
-                <Insets left="20.0" right="20.0" />
+                <Insets left="10.0" right="10.0" />
             </HBox.margin>
         </Label>
-      <Label fx:id="lblPieces" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="50.0" text="0" />
+      <Label fx:id="lblPieces" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="24.0" text="0" />
         <Label prefHeight="17.0" prefWidth="25.0" text="ks">
             <HBox.margin>
                 <Insets left="5.0" right="20.0" />
@@ -39,7 +39,7 @@
                 <Font name="Arial" size="14.0" />
             </font>
             <HBox.margin>
-                <Insets left="20.0" right="30.0" />
+                <Insets left="20.0" right="20.0" />
             </HBox.margin>
         </Button>
     </children>

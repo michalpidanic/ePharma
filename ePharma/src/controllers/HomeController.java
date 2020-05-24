@@ -5,14 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import model.pharmacy.Medicine;
 import model.pharmacy.Pharmacy;
 import model.pharmacy.Storage;
 import model.users.HeadPharmacist;
 import model.users.Pharmacist;
-import services.EmptyTextFieldException;
-import services.SerializationService;
-import services.SwitchScreenService;
+import services.*;
 import views.AlertBox;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class HomeController implements Initializable {
     App app = new App();
 
     @FXML
-    private Button btnMenu;
+    private Button btnProducts;
 
     @FXML
     private Button btnOrder;
@@ -85,6 +84,15 @@ public class HomeController implements Initializable {
     @FXML
     private Button btnCancel;
 
+    @FXML
+    private VBox pnCart;
+
+    @FXML
+    private VBox pnProducts;
+
+    @FXML
+    private VBox pnStore;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -99,25 +107,34 @@ public class HomeController implements Initializable {
         } else if(app.getPharmacy().getLoggedInUser() instanceof Pharmacist) {
             btnStorage.setVisible(true);
         }
+
+        ProductsViewService.paneInit(app.getPharmacy().getStorage(), pnProducts);
     }
 
     @FXML
-    private void sideMenuHandler(ActionEvent event) throws IOException {
-        if(event.getSource() == btnMenu) {
+    private void sideMenuHandler(ActionEvent event) throws IOException, ClassNotFoundException {
+        if(event.getSource() == btnProducts) {
+            app.deserializeInstance();
+            pnProducts.getChildren().clear();
+            ProductsViewService.paneInit(app.getPharmacy().getStorage(), pnProducts);
             pnMenu.toFront();
 
         } else if(event.getSource() == btnOrder) {
+            app.deserializeInstance();
+            pnCart.getChildren().clear();
+            CartViewService.paneInit(app.getPharmacy().getOrder(), pnCart);
             pnOrder.toFront();
 
         } else if(event.getSource() == btnStorage) {
+            app.deserializeInstance();
             pnStorage.toFront();
 
         } else if(event.getSource() == btnUsers) {
+            app.deserializeInstance();
             pnUsers.toFront();
 
         } else if(event.getSource() == btnLogout) {
-            Pharmacy pharmacy = app.getPharmacy();
-            pharmacy.logout(pharmacy.getLoggedInUser());
+            app.getPharmacy().logout(app.getPharmacy().getLoggedInUser());
 
             SerializationService.serialize(app.getPharmacy());
             SwitchScreenService.newScreen(event, "/views/LoginCustomer.fxml");
