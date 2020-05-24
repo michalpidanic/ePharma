@@ -127,6 +127,8 @@ public class HomeController implements Initializable {
 
         } else if(event.getSource() == btnStorage) {
             app.deserializeInstance();
+            pnStore.getChildren().clear();
+            StoreViewService.paneInit(app.getPharmacy().getStorage(), pnStore);
             pnStorage.toFront();
 
         } else if(event.getSource() == btnUsers) {

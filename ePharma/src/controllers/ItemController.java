@@ -58,7 +58,7 @@ public class ItemController implements Initializable {
     }
 
     @FXML
-    public void setElements(String name, double price, boolean prescription, int pieces) {
+    public void setElements(String name, double price, boolean prescription, int pieces, boolean hide) {
         lblName.setText(name);
         lblPrice.setText(String.valueOf(price));
         lblPieces.setText(String.valueOf(pieces));
@@ -66,6 +66,9 @@ public class ItemController implements Initializable {
             lblPrescription.setText("na predpis");
         } else {
             lblPrescription.setText("voľný predaj");
+        }
+        if(hide) {
+            btnTake.setVisible(false);
         }
     }
 }
