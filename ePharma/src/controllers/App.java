@@ -30,7 +30,6 @@ public class App extends Application {
         pharmacy = (Pharmacy) SerializationService.deserialize();
     }
 
-
     public Pharmacy getPharmacy() {
         return pharmacy;
     }

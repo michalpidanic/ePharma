@@ -89,9 +89,7 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             app.deserializeInstance();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -127,7 +125,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void registrationHandler(ActionEvent event) {
+    private void registrationHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnRegister) {
             String name = tfNewUsername.getText();
             String id = tfNewID.getText();
@@ -137,8 +135,12 @@ public class HomeController implements Initializable {
                 if(name == null || id == null || password == null) {
                     throw new EmptyTextFieldException();
                 } else {
-                    HeadPharmacist admin = (HeadPharmacist) Pharmacy.getInstance().getLoggedInUser();
-                    admin.registerUser(name, password, id, Pharmacy.getInstance());
+                    HeadPharmacist admin = (HeadPharmacist) app.getPharmacy().getLoggedInUser();
+                    admin.registerUser(name, password, id, app.getPharmacy());
+                    SerializationService.serialize(app.getPharmacy());
+                    tfNewUsername.setText(null);
+                    tfNewID.setText(null);
+                    pfNewPassword.setText(null);
                 }
             } catch (EmptyTextFieldException e) {
                 System.out.println(e.getMessage());
@@ -147,7 +149,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void addToStorageHandler(ActionEvent event) {
+    private void addToStorageHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnAdd) {
             String name = tfNewArticle.getText();
             String strPieces = tfNewPieces.getText();
@@ -161,9 +163,10 @@ public class HomeController implements Initializable {
                     int pieces = Integer.parseInt(strPieces);
                     double price = Double.parseDouble(strPrice);
                     Medicine medicine = new Medicine(name, price, prescription);
-                    Storage storage = Pharmacy.getInstance().getStorage();
+                    Storage storage = app.getPharmacy().getStorage();
 
                     storage.addToStorage(medicine, pieces);
+                    SerializationService.serialize(app.getPharmacy());
                 }
             } catch (EmptyTextFieldException e) {
                 System.out.println(e.getMessage());
@@ -172,10 +175,11 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void payOrderHandler(ActionEvent event) {
+    private void payOrderHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnPay) {
-            Pharmacy pharmacy = Pharmacy.getInstance();
+            Pharmacy pharmacy = app.getPharmacy();
             int value = pharmacy.getLoggedInUser().payOrder(pharmacy.getOrder());
+            SerializationService.serialize(app.getPharmacy());
 
             lblSum.setText("0.00 €");
 
@@ -190,10 +194,11 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void cancelOrderHandler(ActionEvent event) {
+    private void cancelOrderHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnCancel) {
-            Pharmacy pharmacy = Pharmacy.getInstance();
+            Pharmacy pharmacy = app.getPharmacy();
             pharmacy.getOrder().cancelOrder(pharmacy.getStorage());
+            SerializationService.serialize(app.getPharmacy());
 
             lblSum.setText("0.00 €");
 

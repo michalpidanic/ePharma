@@ -33,9 +33,7 @@ public class LoginUserController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             app.deserializeInstance();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
