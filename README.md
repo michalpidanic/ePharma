@@ -67,7 +67,7 @@ Tu môžeme vidieť rozdiel medzi možnosťami Headpharmacist a Customer:
 	- definovaná metóda deserialize() v SerializationService https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/b0f9b72cefde5fbeb5667a2189ce842ea9d56dcb/ePharma/src/services/SerializationService.java#L28
 	- volanie metódy deserialize() https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/b0f9b72cefde5fbeb5667a2189ce842ea9d56dcb/ePharma/src/controllers/App.java#L43
 	
--implicitná implementácia metódy v rozhraní:
+- implicitná implementácia metódy v rozhraní:
 	- rozhranie Payment s metódou payOrder() https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/8bdc97a62ae286206df9762f424cc86baa049101/ePharma/src/Users/Payment.java#L5
 
 - lambda výraz:
