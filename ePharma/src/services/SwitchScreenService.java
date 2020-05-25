@@ -10,7 +10,16 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Service that provides switching view
+ */
 public class SwitchScreenService {
+    /**
+     * Method for screen change
+     * @param event Event
+     * @param path Path to .fxml file we to to switch to
+     * @throws IOException Exception when .fxml file not found
+     */
     @FXML
     public static void newScreen(ActionEvent event, String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();

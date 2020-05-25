@@ -7,7 +7,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Service for providing login verification for any login data for customer and pharmacist with boolean return value
+ */
 public class LoginService {
+    /**
+     * Method for customer login, verifies insurance number, when correct calls login method from pharmacy class
+     * @param id Insurance number
+     * @param pharmacy Pharmacy object where the user will be logged in
+     * @return Boolean value whether verification was successful
+     */
     public static boolean verifyLogin(String id, Pharmacy pharmacy) {
         boolean found = false;
         String tempId = "";
@@ -39,6 +48,13 @@ public class LoginService {
         return false;
     }
 
+    /**
+     * Method for employee login, verifies login data, when correct calls login method from pharmacy class
+     * @param username Username
+     * @param password Password
+     * @param pharmacy Pharmacy object where the user will be logged in
+     * @return Boolean value whether verification was successful
+     */
     public static boolean verifyLogin(String username, String password, Pharmacy pharmacy) {
         if(pharmacy.getEmployeesLogin().containsKey(username)) {
             if(pharmacy.getEmployeesLogin().get(username).equals(password)) {

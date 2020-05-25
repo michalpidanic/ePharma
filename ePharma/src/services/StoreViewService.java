@@ -10,7 +10,15 @@ import model.pharmacy.Storage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Service for loading dynamic scrollable view of products in storage
+ */
 public class StoreViewService {
+    /**
+     * Method for init
+     * @param storage Storage instance which will be visualised
+     * @param pane Pane where it will be visualised
+     */
     public static void paneInit(Storage storage, VBox pane) {
         ArrayList<Medicine> products = storage.getItems();
         int num = products.size();

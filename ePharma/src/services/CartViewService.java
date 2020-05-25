@@ -10,7 +10,15 @@ import model.pharmacy.Order;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Service for loading dynamic scrollable view of products in shopping cart
+ */
 public class CartViewService {
+    /**
+     * Method for init
+     * @param order Order instance which will be visualised
+     * @param pane Pane where it will be visualised
+     */
     public static void paneInit(Order order, VBox pane) {
         ArrayList<Medicine> products = order.getItems();
         int num = products.size();
