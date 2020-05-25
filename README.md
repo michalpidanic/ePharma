@@ -74,7 +74,7 @@ Program spustíme v prostredí InteliJ alebo Eclipse, spustením triedy App. Po 
 	
 4. UML diagram
 
-![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/UML.png "UML.png")
+![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/images/UML.png "UML.png")
 
 5. Záver
 
