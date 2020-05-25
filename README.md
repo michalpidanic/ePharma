@@ -23,7 +23,25 @@ Storage - sklad jednotlivých položiek Medicine. Informuje zamestancov o počte
 
 2. Návod na spustenie
 
-Program spustíme v prostredí InteliJ alebo Eclipse, spustením triedy App. Po spustení aplikácie sa nám zobrazí následujúca obrazovka:
+Program spustíme v prostredí InteliJ alebo Eclipse, spustením triedy App (/ePharma/src/controllers/App.java). Po spustení aplikácie sa nám zobrazí následujúca obrazovka:
+
+![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/images/screen1.png "screen1.png")
+
+Do textového poľa zadáme číslo poistenca 0000000001 (má lekársky predpis) alebo 0000000002 (nemá lekársky predpis). Taktiež si môžeme vybrať akékoľvek iné číslo, ostatné valídne čísla sú v /ePharma/resources/patients.txt. V prípade, že klikneme na "Pokračovať ako zamestnanec", zobrazí sa nám následujúca obrazovka:
+
+![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/images/screen2.png "screen2")
+
+Ak do textového poľa zadáme meno "admin" a heslo "admin", tak sa prihlásime ako majiteľ (Headpharmacist) a môžeme registrovať aj nových userov. Takisto máme prístup k ponuke liekov, košíku a skladu. K registrácii používateľov sa dostaneme len pod prihlasovacími údajmi admin admin.
+
+![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/images/screen4.png "screen4")
+
+Ak registrujeme nového usera, ten bude mať prístup len k skladu, ponuke a košíku. Ak sa prihlásime ako zákazník, zobrazí sa nám len ponuka liekov a košík. Všetci užívatelia majú k dispozícii tlačidlo na odhlásenie. Následujúca snímka zobrazuje obrazovku po prihlásení ako zákazník:
+
+![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/images/screen5.png "screen5")
+
+Tu môžeme vidieť rozdiel medzi možnosťami Headpharmacist a Customer:
+
+![alt text](https://github.com/OOP-FIIT/oop-2020-uto-16-c-kovacik-michalpidanic/blob/master/images/screen3.png "screen3")
 
 3. Požiadavky na projekt
 
