@@ -123,6 +123,7 @@ public class HomeController implements Initializable {
             app.deserializeInstance();
             pnCart.getChildren().clear();
             CartViewService.paneInit(app.getPharmacy().getOrder(), pnCart);
+            lblSum.setText(String.valueOf(app.getPharmacy().getOrder().getTotalPrice()));
             pnOrder.toFront();
 
         } else if(event.getSource() == btnStorage) {
@@ -185,6 +186,10 @@ public class HomeController implements Initializable {
                     Storage storage = app.getPharmacy().getStorage();
 
                     storage.addToStorage(medicine, pieces);
+                    tfNewArticle.setText(null);
+                    tfNewPieces.setText(null);
+                    tfNewPrice.setText(null);
+                    chckPrescription.setSelected(false);
                     SerializationService.serialize(app.getPharmacy());
                 }
             } catch (EmptyTextFieldException e) {
@@ -200,7 +205,7 @@ public class HomeController implements Initializable {
             int value = pharmacy.getLoggedInUser().payOrder(pharmacy.getOrder());
             SerializationService.serialize(app.getPharmacy());
 
-            lblSum.setText("0.00 €");
+            lblSum.setText("0.00");
 
             if(value == 1) {
                 AlertBox.display("Platba", "Objednávka bola zaplatená!");
@@ -219,7 +224,7 @@ public class HomeController implements Initializable {
             pharmacy.getOrder().cancelOrder(pharmacy.getStorage());
             SerializationService.serialize(app.getPharmacy());
 
-            lblSum.setText("0.00 €");
+            lblSum.setText("0.00");
 
             AlertBox.display("Zrušené", "Objednávka bola zrušená!");
         }

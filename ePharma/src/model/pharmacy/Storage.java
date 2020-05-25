@@ -2,25 +2,41 @@ package model.pharmacy;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Class contains list of all medicines that pharmacy sells
+ */
 public class Storage implements Serializable {
     private ArrayList<Medicine> items;
     private ArrayList<Integer> quantity;
 
+    /**
+     * Constructor creates list of items and its quantity
+     */
     public Storage() {
         this.items = new ArrayList<>();
         this.quantity = new ArrayList<>();
     }
 
+    /**
+     * Method for adding new medicine to storage
+     * @param item Item we want to add
+     * @param pieces Quantity of item we want to add
+     */
     public void addToStorage(Medicine item, int pieces) {
-        if(this.items.contains(item)) {
-            this.quantity.set(this.items.indexOf(item), this.quantity.get(this.items.indexOf(item)) + pieces);
+        Medicine medicine = findMedicine(item.getName());
+        if(medicine != null) {
+            this.quantity.set(this.items.indexOf(medicine), this.quantity.get(this.items.indexOf(medicine)) + pieces);
         } else {
             this.items.add(item);
             this.quantity.add(pieces);
         }
     }
 
-    //TODO else conditions
+    /**
+     * Method for taking medicine from storage
+     * @param item Item we want to take
+     * @param pieces Quantity of item we want to take
+     */
     public void takeFromStorage(Medicine item, int pieces) {
         if(this.items.contains(item)) {
             if(this.quantity.get(this.items.indexOf(item)) - pieces > 0) {
@@ -35,6 +51,11 @@ public class Storage implements Serializable {
         }
     }
 
+    /**
+     * Method finds medicine by its name
+     * @param name Name of medicine we looking for
+     * @return Medicine if exists, else null
+     */
     public Medicine findMedicine(String name) {
         for (Medicine medicine : this.getItems()) {
             if (medicine.getName().equals(name)) {
@@ -48,15 +69,7 @@ public class Storage implements Serializable {
         return items;
     }
 
-    public void setItems(ArrayList<Medicine> items) {
-        this.items = items;
-    }
-
     public ArrayList<Integer> getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(ArrayList<Integer> quantity) {
-        this.quantity = quantity;
     }
 }

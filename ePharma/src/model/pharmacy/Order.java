@@ -2,6 +2,9 @@ package model.pharmacy;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Class which holds information about order, such as products, quantity of products, price of order etc.
+ */
 public class Order implements Serializable {
     private String orderId;
     private ArrayList<Medicine> items;
@@ -9,6 +12,10 @@ public class Order implements Serializable {
     private double totalPrice;
     private boolean prescriptionNeeded;
 
+    /**
+     * Constructor
+     * @param userId Id of owner of order
+     */
     public Order(String userId) {
         this.orderId = userId;
         this.items = new ArrayList<>();
@@ -17,6 +24,12 @@ public class Order implements Serializable {
         this.prescriptionNeeded = false;
     }
 
+    /**
+     * Method which adds product to order
+     * @param item Item we want to add to order
+     * @param pieces Quantity of item we want to add
+     * @param storage Storage of pharmacy, from where we will take the items
+     */
     public void addToOrder(Medicine item, int pieces, Storage storage) {
         this.totalPrice += item.getPrice() * pieces;
 
@@ -34,6 +47,11 @@ public class Order implements Serializable {
         storage.takeFromStorage(item, pieces);
     }
 
+    /**
+     * Method takes item from order and returns it back to storage
+     * @param item Item we want to delete from order (only one piece)
+     * @param storage Pharmacy storage, where we return product
+     */
     public void takeFromOrder(Medicine item, Storage storage) {
         this.totalPrice -= item.getPrice();
 
@@ -57,6 +75,9 @@ public class Order implements Serializable {
         storage.addToStorage(item, 1);
     }
 
+    /**
+     * Method for deleting order after payment
+     */
     public void cancelOrder() {
         this.items.clear();
         this.quantity.clear();
@@ -64,53 +85,31 @@ public class Order implements Serializable {
         this.prescriptionNeeded = false;
     }
 
+    /**
+     * Method for canceling order with returning all items back to storage
+     * @param storage Storage where we put items
+     */
     public void cancelOrder(Storage storage) {
-        for(Medicine i : this.items) {
-            storage.addToStorage(i, this.quantity.get(this.items.indexOf(i)));
-        }
+        this.items.forEach(i -> storage.addToStorage(i, this.quantity.get(this.items.indexOf(i))));
         this.items.clear();
         this.quantity.clear();
         this.totalPrice = 0;
         this.prescriptionNeeded = false;
     }
 
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
     public ArrayList<Medicine> getItems() {
         return items;
-    }
-
-    public void setItems(ArrayList<Medicine> items) {
-        this.items = items;
     }
 
     public ArrayList<Integer> getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(ArrayList<Integer> quantity) {
-        this.quantity = quantity;
-    }
-
     public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
     public boolean isPrescriptionNeeded() {
         return prescriptionNeeded;
-    }
-
-    public void setPrescriptionNeeded(boolean prescriptionNeeded) {
-        this.prescriptionNeeded = prescriptionNeeded;
     }
 }

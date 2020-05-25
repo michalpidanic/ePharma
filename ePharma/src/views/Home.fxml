@@ -104,82 +104,6 @@
                   <Label text="Heslo:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
-            <GridPane fx:id="pnMenu" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="288.97694396972656" minHeight="10.0" prefHeight="283.70323181152344" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6E6;">
-                     <children>
-                        <Label alignment="CENTER" text="Ponuka" textFill="#404040">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <content>
-                        <VBox fx:id="pnProducts" prefWidth="475.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnOrder" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="288.97694396972656" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6E6;">
-                     <children>
-                        <Label alignment="CENTER" text="Košík" textFill="#404040">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #E6E6E6; -fx-border-width: 3px; -fx-border-style: solid hidden hidden hidden;" GridPane.rowIndex="2">
-                     <children>
-                        <Label fx:id="lblSum" text="0.00 €">
-                           <HBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Button fx:id="btnPay" mnemonicParsing="false" onAction="#payOrderHandler" stylesheets="@css/Item.css" text="Zaplatiť">
-                           <HBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelOrderHandler" prefHeight="27.0" prefWidth="59.0" stylesheets="@css/Item.css" text="Zrušiť">
-                           <HBox.margin>
-                              <Insets left="20.0" right="30.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <content>
-                        <VBox fx:id="pnCart" prefWidth="475.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
-            </GridPane>
             <GridPane fx:id="pnStorage" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -249,6 +173,87 @@
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <content>
                         <VBox fx:id="pnStore" prefWidth="475.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnOrder" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="288.97694396972656" minHeight="10.0" prefHeight="169.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6E6;">
+                     <children>
+                        <Label alignment="CENTER" text="Košík" textFill="#404040">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #E6E6E6; -fx-border-width: 3px; -fx-border-style: solid hidden hidden hidden;" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="lblSum" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="46.0" text="0.00">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="€">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button fx:id="btnPay" mnemonicParsing="false" onAction="#payOrderHandler" stylesheets="@css/Item.css" text="Zaplatiť">
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelOrderHandler" prefHeight="27.0" prefWidth="59.0" stylesheets="@css/Item.css" text="Zrušiť">
+                           <HBox.margin>
+                              <Insets left="20.0" right="30.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <content>
+                        <VBox fx:id="pnCart" prefWidth="475.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnMenu" prefHeight="79.0" prefWidth="187.0" style="-fx-background-color: #fff;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="288.97694396972656" minHeight="10.0" prefHeight="283.70323181152344" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #E6E6E6;">
+                     <children>
+                        <Label alignment="CENTER" text="Ponuka" textFill="#404040">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <content>
+                        <VBox fx:id="pnProducts" prefWidth="475.0" />
                      </content>
                   </ScrollPane>
                </children>
