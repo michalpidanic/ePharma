@@ -8,8 +8,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
+/**
+ * Alert box with manually coded handler without using FXML
+ */
 public class AlertBox {
+    /**
+     * Method pops up alert box and freezes entire view behind it
+     * @param title Title of alert box
+     * @param message Message that alert box contains
+     */
     public static void display(String title, String message) {
         Stage window = new Stage();
 

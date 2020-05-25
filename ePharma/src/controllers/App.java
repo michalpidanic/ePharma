@@ -10,6 +10,9 @@ import services.SerializationService;
 
 import java.io.IOException;
 
+/**
+ * Main class which we run
+ */
 public class App extends Application {
     private Pharmacy pharmacy;
 
@@ -17,6 +20,11 @@ public class App extends Application {
         launch(args);
     }
 
+    /**
+     * Start method for loading very first view
+     * @param primaryStage Stage
+     * @throws Exception Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/LoginCustomer.fxml"));
@@ -26,6 +34,11 @@ public class App extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Method where we call SerializationService and deserialize pharmacy instance
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void deserializeInstance() throws IOException, ClassNotFoundException {
         pharmacy = (Pharmacy) SerializationService.deserialize();
     }

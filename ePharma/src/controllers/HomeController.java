@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller of Home view
+ */
 public class HomeController implements Initializable {
     App app = new App();
 
@@ -93,6 +96,11 @@ public class HomeController implements Initializable {
     @FXML
     private VBox pnStore;
 
+    /**
+     * Method for view and controller initialization, we customise view, based on logged in user
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -111,6 +119,12 @@ public class HomeController implements Initializable {
         ProductsViewService.paneInit(app.getPharmacy().getStorage(), pnProducts);
     }
 
+    /**
+     * Method which provides handling click on side menu buttons
+     * @param event Clicks on side menu buttons
+     * @throws IOException Exception when .fxml file not found
+     * @throws ClassNotFoundException Exception when class not found
+     */
     @FXML
     private void sideMenuHandler(ActionEvent event) throws IOException, ClassNotFoundException {
         if(event.getSource() == btnProducts) {
@@ -138,12 +152,16 @@ public class HomeController implements Initializable {
 
         } else if(event.getSource() == btnLogout) {
             app.getPharmacy().logout(app.getPharmacy().getLoggedInUser());
-
             SerializationService.serialize(app.getPharmacy());
             SwitchScreenService.newScreen(event, "/views/LoginCustomer.fxml");
         }
     }
 
+    /**
+     * Method calls method from model for new user registration registerUser, with parameters from text fields, throwing own exception when some text field is empty
+     * @param event Click on btnRegister
+     * @throws IOException
+     */
     @FXML
     private void registrationHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnRegister) {
@@ -168,6 +186,11 @@ public class HomeController implements Initializable {
         }
     }
 
+    /**
+     * Method calls method addToStorage from model with parameters from text fields and provides serialization via SerializationService
+     * @param event Click on btnAdd
+     * @throws IOException
+     */
     @FXML
     private void addToStorageHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnAdd) {
@@ -198,6 +221,12 @@ public class HomeController implements Initializable {
         }
     }
 
+    /**
+     * Method calls method payOrder from model, based on logged in User and payment will be provided
+     * Serialization will be provided via SerializationService
+     * @param event Click on btnPay
+     * @throws IOException
+     */
     @FXML
     private void payOrderHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnPay) {
@@ -205,10 +234,9 @@ public class HomeController implements Initializable {
             int value = pharmacy.getLoggedInUser().payOrder(pharmacy.getOrder());
             SerializationService.serialize(app.getPharmacy());
 
-            lblSum.setText("0.00");
-
             if(value == 1) {
                 AlertBox.display("Platba", "Objednávka bola zaplatená!");
+                lblSum.setText("0.00");
             } else if(value == 2) {
                 AlertBox.display("Chyba", "Objednávka vyždauje lekársky predpis!");
             } else {
@@ -217,6 +245,12 @@ public class HomeController implements Initializable {
         }
     }
 
+    /**
+     * Method calls cancelOrder method from model and sets lblSum on 0 and pops up AlertBox
+     * Serialization will be provided via SerializationService
+     * @param event Click on btnCancel
+     * @throws IOException
+     */
     @FXML
     private void cancelOrderHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnCancel) {

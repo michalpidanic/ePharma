@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Class that works like factory reset, if something goes wrong, we can create and serialize instance of pharmacy with users, head pharmacist, storage and medicine in it
  */
-public class Main {
+public class Reset {
     public static void main(String[] args) throws IOException {
         //initialization
         Pharmacy pharmacy = Pharmacy.getInstance();

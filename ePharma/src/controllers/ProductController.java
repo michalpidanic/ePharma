@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for Product view
+ */
 public class ProductController implements Initializable {
     App app = new App();
 
@@ -32,6 +35,11 @@ public class ProductController implements Initializable {
     @FXML
     private Button btnBuy;
 
+    /**
+     * Method for view and controller initialization
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -41,6 +49,11 @@ public class ProductController implements Initializable {
         }
     }
 
+    /**
+     * Method calls method from model for Order addToOrder and Serialization of pharmacy will be provided
+     * @param event Click on btnBuy
+     * @throws IOException
+     */
     @FXML
     private void addToOrderHandler(ActionEvent event) throws IOException {
         if(event.getSource() == btnBuy) {
@@ -54,6 +67,12 @@ public class ProductController implements Initializable {
         }
     }
 
+    /**
+     * Method sets all the labels on Product view
+     * @param name Name of medicine
+     * @param price Price of medicine
+     * @param prescription Boolean if medicine is on prescription
+     */
     @FXML
     public void setElements(String name, double price, boolean prescription) {
         lblName.setText(name);
